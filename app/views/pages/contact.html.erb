@@ -1,0 +1,28 @@
+<h3>Let's connect</h3>
+<div class="card z-depth-3">
+	<div class="card-content">
+		<p>Do you wanna stalk me? Find me on a map</p>
+		<br />
+		<div id="map"></div>
+	</div>
+</div>
+<style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(45.8167, 15.9833),
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+       
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
