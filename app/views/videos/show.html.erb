@@ -16,13 +16,18 @@
 				</div>
 			</div>
             <div class="card-content white-text">
+              <button class="btn btn-primary" onclick="setPlaySpeed(0.75)">0.75x</button>
+              <button class="btn btn-primary" onclick="setPlaySpeed(1)">1x</button>
+              <button class="btn btn-primary" onclick="setPlaySpeed(1.25)">1.25x</button>
+              <button class="btn btn-primary" onclick="setPlaySpeed(1.5)">1.5x</button>
+              <button class="btn btn-primary" onclick="setPlaySpeed(2)">2x</button>
               <span class="card-title"><%= @video.title %></span>
               <p><%= @video.description %></p>
             </div>
             <div class="card-action">
-              <a href="#">Previous</a>
+              <%= link_to "Previous", @prev_video if !@prev_video.nil? %>
               <div class="right">
-              	<a href="#">Next</a>
+              	<%= link_to "Next", @next_video if !@next_video.nil? %>
               </div>
             </div>
           </div>
@@ -35,4 +40,8 @@
 	 videoQuality: "hd-only",
 	 videoFoam: true
 	});
+
+	function setPlaySpeed (speed) {
+		wistiaEmbed.playbackRate(speed)
+	}
 </script>
